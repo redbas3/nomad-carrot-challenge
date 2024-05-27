@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    input:focus,
+    input:active {
+        border: none;
+        outline: none !important;
+        outline-width: 0px;
+    }
+}
