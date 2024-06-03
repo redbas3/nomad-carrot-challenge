@@ -1,9 +1,8 @@
+import AddTweet from "@/components/add-tweet";
 import TweetList from "@/components/tweet-list";
 import db from "@/lib/db";
-import { PlusIcon } from "@heroicons/react/24/solid";
 import { Prisma } from "@prisma/client";
 import { unstable_cache as nextCache, revalidatePath } from "next/cache";
-import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
@@ -37,13 +36,8 @@ export default async function Tweets() {
   };
   return (
     <div className="flex flex-col max-w-[400px] mx-auto pt-14 justify-center gap-5">
+      <AddTweet />
       <TweetList initialTweets={initialTweets} />
-      <Link
-        href="/tweets/add"
-        className="bg-orange-500 flex items-center justify-center rounded-full size-16 fixed bottom-24 right-6 text-white transition-colors hover:bg-orange-400"
-      >
-        <PlusIcon className="size-10" />
-      </Link>
     </div>
   );
 }
