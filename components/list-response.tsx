@@ -11,7 +11,7 @@ interface ListResponseProps {
 }[];
 
 export default function ListResponse({ initialResponses, tweetId }: ListResponseProps) {
-  const [state, reducerFn] = useOptimistic({ initialResponses }, (previousState, payload) => ({
+  const [state, reducerFn] = useOptimistic({ initialResponses }, (previousState, payload: any) => ({
     initialResponses: [payload, ...previousState.initialResponses]
   }));
 
