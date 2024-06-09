@@ -11,6 +11,7 @@ export default function AddTweet() {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm<TweetType>({
     resolver: zodResolver(tweetSchema),
@@ -18,6 +19,7 @@ export default function AddTweet() {
   const onSubmit = handleSubmit(async (data: TweetType) => {
     const formData = new FormData();
     formData.append("tweet", data.tweet);
+    setValue("tweet", "");
     return uploadTweet(formData);
   });
   const onVaild = async () => {

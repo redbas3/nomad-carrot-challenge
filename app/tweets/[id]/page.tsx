@@ -7,6 +7,8 @@ import { formatToTimeAgo } from "@/lib/utils";
 import Link from "next/link";
 
 async function getTweet(id: number) {
+  await new Promise(resolve => setTimeout(resolve, 10000));
+
   try {
     const tweet = await db.tweet.update({
       where: {
