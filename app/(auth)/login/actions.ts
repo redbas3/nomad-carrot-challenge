@@ -17,8 +17,7 @@ const formSchema = z.object({
   email: z
     .string()
     .email()
-    .toLowerCase()
-    .refine(checkEmail, "Only @zod.com emails are allowed"),
+    .toLowerCase(),
   password: z
     .string({
       required_error: "Password is required",
