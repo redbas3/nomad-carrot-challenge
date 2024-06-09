@@ -1,5 +1,5 @@
 import AddTweet from "@/components/add-tweet";
-import TweetList from "@/components/tweet-list";
+import ListTweet from "@/components/list-tweet";
 import db from "@/lib/db";
 import { Prisma } from "@prisma/client";
 import { unstable_cache as nextCache, revalidatePath } from "next/cache";
@@ -37,7 +37,7 @@ export default async function Tweets() {
   return (
     <div className="flex flex-col max-w-[400px] mx-auto pt-14 justify-center gap-5">
       <AddTweet />
-      <TweetList initialTweets={initialTweets} />
+      <ListTweet initialTweets={initialTweets} />
     </div>
   );
 }

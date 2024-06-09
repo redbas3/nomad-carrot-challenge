@@ -1,22 +1,19 @@
-import { formatToTimeAgo } from "@/lib/utils";
-import Image from "next/image";
-import Link from "next/link";
+"use client";
+
+import { InitialTweets } from "@/app/(tabs)/(home)/page";
+import BoxTweet from "./box-tweet";
 
 interface ListTweetProps {
-  tweet: string;
-  created_at: Date;
-  id: number;
+  initialTweets: InitialTweets;
 }
 
-export default function ListTweet({ tweet, created_at, id }: ListTweetProps) {
+export default function ListTweet({ initialTweets }: ListTweetProps) {
+
   return (
-    <Link href={`/tweets/${id}`} className="flex gap-5">
-      <div className="flex flex-col gap-1">
-        <span className="text-lg">{tweet}</span>
-        <span className="text-sm text-neutral-500">
-          {formatToTimeAgo(created_at.toString())}
-        </span>
-      </div>
-    </Link>
+    <div className="p-5 flex flex-col gap-5">
+      {initialTweets.map((tweet) => (
+        <BoxTweet key={tweet.id} {...tweet} />
+      ))}
+    </div>
   );
 }
